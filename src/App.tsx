@@ -41,6 +41,54 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Premium Sticky Header */}
+      <header className="app-header">
+        <div className="header-wrapper">
+          <div className="header-left">
+            <h1 className="header-logo">
+              <span className="logo-icon">✨</span>
+              <span className="logo-text">Design Showcase</span>
+            </h1>
+            <p className="header-tagline">Premium UI Components & Patterns</p>
+          </div>
+          
+          <nav className="header-nav">
+            <button 
+              className={`header-nav-btn ${currentView === 'patterns' ? 'active' : ''}`}
+              onClick={() => {
+                setCurrentView('patterns');
+                setIsSidebarOpen(false);
+              }}
+            >
+              <span className="nav-icon">🎨</span>
+              <span className="nav-label">Patterns</span>
+            </button>
+            <button 
+              className={`header-nav-btn ${currentView === 'about' ? 'active' : ''}`}
+              onClick={() => {
+                setCurrentView('about');
+                setIsSidebarOpen(false);
+              }}
+            >
+              <span className="nav-icon">👨‍💻</span>
+              <span className="nav-label">Developer</span>
+            </button>
+          </nav>
+
+          <div className="header-right">
+            <button 
+              className={`dev-toggle-btn ${currentView === 'about' ? 'active' : ''}`}
+              onClick={() => {
+                setCurrentView(currentView === 'patterns' ? 'about' : 'patterns');
+                setIsSidebarOpen(false);
+              }}
+            >
+              <span className="btn-icon">{currentView === 'about' ? '🏠' : '👨‍💻'}</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
       <button 
         className="mobile-menu-btn"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -51,18 +99,6 @@ function App() {
           <span></span>
           <span></span>
         </span>
-      </button>
-
-      {/* Top Right Toggle Button */}
-      <button 
-        className={`dev-toggle-btn ${currentView === 'about' ? 'active' : ''}`}
-        onClick={() => {
-          setCurrentView(currentView === 'patterns' ? 'about' : 'patterns');
-          setIsSidebarOpen(false);
-        }}
-      >
-        <span className="btn-icon">{currentView === 'about' ? '🏠' : '👨‍💻'}</span>
-        <span className="btn-text">{currentView === 'about' ? 'Back to Patterns' : 'Meet the Developer'}</span>
       </button>
 
       {/* Sidebar */}
