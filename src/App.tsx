@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { categories, DesignItem } from './data';
 import DemoRenderer from './components/DemoRenderer';
+import AboutMe from './components/AboutMe';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [activeTab, setActiveTab] = useState<'what' | 'how' | 'prompt' | 'examples'>('what');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [currentView, setCurrentView] = useState<'patterns' | 'about'>('patterns');
 
   useEffect(() => {
     setIsAnimating(true);
@@ -22,6 +24,7 @@ function App() {
     setSelectedItem(item);
     setActiveTab('what');
     setIsSidebarOpen(false);
+    setCurrentView('patterns'); // Switch back to patterns if an item is selected
   };
 
   const toggleCategory = (categoryId: string) => {
@@ -38,7 +41,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Mobile Menu Button */}
       <button 
         className="mobile-menu-btn"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -49,6 +51,18 @@ function App() {
           <span></span>
           <span></span>
         </span>
+      </button>
+
+      {/* Top Right Toggle Button */}
+      <button 
+        className={`dev-toggle-btn ${currentView === 'about' ? 'active' : ''}`}
+        onClick={() => {
+          setCurrentView(currentView === 'patterns' ? 'about' : 'patterns');
+          setIsSidebarOpen(false);
+        }}
+      >
+        <span className="btn-icon">{currentView === 'about' ? '🏠' : '👨‍💻'}</span>
+        <span className="btn-text">{currentView === 'about' ? 'Back to Patterns' : 'Meet the Developer'}</span>
       </button>
 
       {/* Sidebar */}
@@ -107,67 +121,73 @@ function App() {
       {/* Main Content */}
       <main className="main-content">
         <div className={`content-wrapper ${isAnimating ? 'fade-in' : ''}`}>
-          {/* Visual Hero Card */}
-          <div className={`hero-card ${selectedItem.cssDemo}`}>
-            <div className="hero-content">
-              <div className="hero-text">
-                <span className="hero-icon">{selectedItem.icon}</span>
-                <h2 className="hero-title">{selectedItem.name}</h2>
-              </div>
-              
-              <DemoRenderer item={selectedItem} />
-            </div>
-          </div>
-
-          {/* Tab Navigation */}
-          <div className="tabs-container">
-            <div className="tabs-header">
-              <button className={`tab-button ${activeTab === 'what' ? 'active' : ''}`} onClick={() => setActiveTab('what')}>What it is</button>
-              <button className={`tab-button ${activeTab === 'how' ? 'active' : ''}`} onClick={() => setActiveTab('how')}>How it works</button>
-              <button className={`tab-button ${activeTab === 'prompt' ? 'active' : ''}`} onClick={() => setActiveTab('prompt')}>AI Prompt</button>
-              <button className={`tab-button ${activeTab === 'examples' ? 'active' : ''}`} onClick={() => setActiveTab('examples')}>Examples</button>
-            </div>
-
-            <div className="tab-content">
-              {activeTab === 'what' && (
-                <div className="tab-panel fade-up">
-                  <h3 className="tab-heading">What is {selectedItem.name}?</h3>
-                  <p className="tab-text">{selectedItem.whatItIs}</p>
-                </div>
-              )}
-
-              {activeTab === 'how' && (
-                <div className="tab-panel fade-up">
-                  <h3 className="tab-heading">How does it work?</h3>
-                  <p className="tab-text">{selectedItem.howItWorks}</p>
-                </div>
-              )}
-
-              {activeTab === 'prompt' && (
-                <div className="tab-panel fade-up">
-                  <h3 className="tab-heading">AI Prompt for {selectedItem.name}</h3>
-                  <div className="code-block-container">
-                    <button className="copy-button" onClick={() => copyToClipboard(selectedItem.aiPrompt)}>📋 Copy</button>
-                    <pre className="code-block"><code>{selectedItem.aiPrompt}</code></pre>
+          {currentView === 'patterns' ? (
+            <>
+              {/* Visual Hero Card */}
+              <div className={`hero-card ${selectedItem.cssDemo}`}>
+                <div className="hero-content">
+                  <div className="hero-text">
+                    <span className="hero-icon">{selectedItem.icon}</span>
+                    <h2 className="hero-title">{selectedItem.name}</h2>
                   </div>
+                  
+                  <DemoRenderer item={selectedItem} />
                 </div>
-              )}
+              </div>
 
-              {activeTab === 'examples' && (
-                <div className="tab-panel fade-up">
-                  <h3 className="tab-heading">Real-world Examples</h3>
-                  <ul className="examples-list">
-                    {selectedItem.examples.map((example, index) => (
-                      <li key={index} className="example-item">
-                        <span className="example-bullet">→</span>
-                        {example}
-                      </li>
-                    ))}
-                  </ul>
+              {/* Tab Navigation */}
+              <div className="tabs-container">
+                <div className="tabs-header">
+                  <button className={`tab-button ${activeTab === 'what' ? 'active' : ''}`} onClick={() => setActiveTab('what')}>What it is</button>
+                  <button className={`tab-button ${activeTab === 'how' ? 'active' : ''}`} onClick={() => setActiveTab('how')}>How it works</button>
+                  <button className={`tab-button ${activeTab === 'prompt' ? 'active' : ''}`} onClick={() => setActiveTab('prompt')}>AI Prompt</button>
+                  <button className={`tab-button ${activeTab === 'examples' ? 'active' : ''}`} onClick={() => setActiveTab('examples')}>Examples</button>
                 </div>
-              )}
-            </div>
-          </div>
+
+                <div className="tab-content">
+                  {activeTab === 'what' && (
+                    <div className="tab-panel fade-up">
+                      <h3 className="tab-heading">What is {selectedItem.name}?</h3>
+                      <p className="tab-text">{selectedItem.whatItIs}</p>
+                    </div>
+                  )}
+
+                  {activeTab === 'how' && (
+                    <div className="tab-panel fade-up">
+                      <h3 className="tab-heading">How does it work?</h3>
+                      <p className="tab-text">{selectedItem.howItWorks}</p>
+                    </div>
+                  )}
+
+                  {activeTab === 'prompt' && (
+                    <div className="tab-panel fade-up">
+                      <h3 className="tab-heading">AI Prompt for {selectedItem.name}</h3>
+                      <div className="code-block-container">
+                        <button className="copy-button" onClick={() => copyToClipboard(selectedItem.aiPrompt)}>📋 Copy</button>
+                        <pre className="code-block"><code>{selectedItem.aiPrompt}</code></pre>
+                      </div>
+                    </div>
+                  )}
+
+                  {activeTab === 'examples' && (
+                    <div className="tab-panel fade-up">
+                      <h3 className="tab-heading">Real-world Examples</h3>
+                      <ul className="examples-list">
+                        {selectedItem.examples.map((example, index) => (
+                          <li key={index} className="example-item">
+                            <span className="example-bullet">→</span>
+                            {example}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </>
+          ) : (
+            <AboutMe />
+          )}
         </div>
       </main>
     </div>
