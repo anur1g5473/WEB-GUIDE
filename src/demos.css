@@ -1,0 +1,1439 @@
+.demo-container {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================
+   1. HERO SECTION DEMO
+   ============================ */
+.demo-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at center, #1b1b2f 0%, var(--bg-primary) 100%);
+  text-align: center;
+}
+
+.demo-hero-badge {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent-primary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  margin-bottom: 24px;
+}
+
+.demo-hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.demo-hero-title-gradient {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.demo-hero-subtitle {
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 500px;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.demo-hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.demo-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo-btn-primary {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+}
+
+.demo-btn-primary:hover {
+  background: var(--accent-secondary);
+}
+
+.demo-btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.demo-btn-secondary:hover {
+  background: var(--bg-tertiary);
+}
+
+/* ============================
+   2. PRICING TABLE DEMO
+   ============================ */
+.demo-pricing {
+  padding: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.demo-pricing-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  width: 250px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.demo-pricing-card.popular {
+  border-color: var(--accent-primary);
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+  z-index: 2;
+}
+
+.demo-pricing-card:not(.popular) {
+  opacity: 0.8;
+}
+
+.demo-pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.demo-pricing-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.demo-pricing-amount {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.demo-pricing-features {
+  list-style: none;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.demo-pricing-features li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-pricing-features li.check::before {
+  content: '✓';
+  color: #10B981;
+}
+
+.demo-btn-pricing {
+  width: 100%;
+}
+
+/* ============================
+   3. TESTIMONIALS DEMO
+   ============================ */
+.demo-testimonials {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.demo-marquee-wrapper {
+  display: flex;
+  width: 200%;
+}
+
+.demo-marquee {
+  display: flex;
+  gap: 20px;
+  padding-left: 20px;
+  animation: scroll var(--speed) linear infinite;
+}
+
+.demo-marquee.reverse {
+  animation-direction: reverse;
+}
+
+.demo-testimonial-card {
+  width: 320px;
+  min-width: 320px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.demo-stars {
+  color: #F59E0B;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.demo-quote {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.demo-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  margin: 0;
+}
+
+.demo-author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.demo-author-handle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ============================
+   4. ACCORDION FAQ DEMO
+   ============================ */
+.demo-faq {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.demo-accordion {
+  width: 100%;
+  max-width: 500px;
+  border-top: 1px solid var(--border-color);
+}
+
+.demo-accordion-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.demo-accordion-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+
+.demo-accordion-icon {
+  font-size: 20px;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.demo-accordion-btn[aria-expanded="true"] .demo-accordion-icon {
+  transform: rotate(45deg);
+}
+
+.demo-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.demo-accordion-inner {
+  padding-bottom: 20px;
+}
+
+/* ============================
+   5. MODAL DIALOG DEMO
+   ============================ */
+.demo-modal-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.demo-modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.demo-modal {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  width: 400px;
+  padding: 24px;
+  transform: scale(0.95) translateY(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.demo-modal-backdrop.open .demo-modal {
+  transform: scale(1) translateY(0);
+}
+
+.demo-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.demo-modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.demo-modal-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* ============================
+   6. CARD COMPONENT DEMO
+   ============================ */
+.demo-card-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg-primary);
+}
+
+.demo-card {
+  width: 320px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.demo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-color: var(--accent-primary);
+}
+
+.demo-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+}
+
+.demo-card-content {
+  padding: 24px;
+}
+
+.demo-card-tag {
+  color: var(--accent-primary);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.demo-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.demo-card-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================
+   7. STICKY NAVBAR DEMO
+   ============================ */
+.demo-nav-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  overflow-y: auto;
+  position: relative;
+  height: 400px;
+  border-radius: 12px;
+}
+
+.demo-sticky-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.demo-nav-logo {
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+}
+
+.demo-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.demo-nav-link {
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.demo-nav-link:hover {
+  color: white;
+}
+
+.demo-nav-content {
+  padding: 40px 24px;
+  height: 800px;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 39px,
+    var(--border-color) 40px
+  );
+}
+
+/* ============================
+   8. HAMBURGER MENU DEMO
+   ============================ */
+.demo-hamburger-wrapper {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.demo-hamburger-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 101;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.demo-hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+.demo-hamburger-btn.open .line-1 { transform: rotate(45deg); width: 110%; }
+.demo-hamburger-btn.open .line-2 { opacity: 0; }
+.demo-hamburger-btn.open .line-3 { transform: rotate(-45deg); width: 110%; }
+
+.demo-fullscreen-menu {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-secondary);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+.demo-fullscreen-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.demo-fullscreen-link {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.demo-fullscreen-link:hover {
+  color: white;
+}
+
+/* ============================
+   9. MEGA MENU DEMO
+   ============================ */
+.demo-mega-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.demo-mega-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.demo-mega-item {
+  position: relative;
+}
+
+.demo-mega-trigger {
+  color: var(--text-primary);
+  font-weight: 500;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.demo-mega-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 2fr;
+  gap: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  z-index: 50;
+}
+
+.demo-mega-item:hover .demo-mega-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.demo-mega-col h4 {
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.demo-mega-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-mega-col ul li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.demo-mega-col ul li a:hover {
+  color: var(--accent-primary);
+}
+
+.demo-mega-feature {
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.demo-mega-feature h4 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+/* ============================
+   10. DOT NAVIGATION DEMO
+   ============================ */
+.demo-dot-wrapper {
+  flex: 1;
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.demo-dot-nav {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+}
+
+.demo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.demo-dot.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.demo-dot-section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.05);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  width: 100%;
+}
+
+/* ============================
+   11. BREADCRUMBS DEMO
+   ============================ */
+.demo-breadcrumbs-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+.demo-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-secondary);
+  padding: 16px 24px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+}
+
+.demo-breadcrumb-item {
+  color: var(--text-secondary);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.demo-breadcrumb-item:hover {
+  color: var(--accent-primary);
+}
+
+.demo-breadcrumb-separator {
+  color: var(--border-color);
+  font-size: 12px;
+}
+
+.demo-breadcrumb-current {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ============================
+   12. TAB NAVIGATION DEMO
+   ============================ */
+.demo-tabs-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+.demo-tabs-container {
+  width: 500px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.demo-tabs-header {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.demo-tab-btn {
+  flex: 1;
+  padding: 16px 0;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.demo-tab-btn.active {
+  color: white;
+}
+
+.demo-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  width: 33.333%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-tab-content {
+  padding: 30px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ============================
+   13. TYPE SCALE DEMO
+   ============================ */
+.demo-type-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.demo-type-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.demo-type-row {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
+}
+
+.demo-type-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.demo-type-label {
+  color: var(--accent-primary);
+  font-family: monospace;
+  font-size: 12px;
+  min-width: 80px;
+}
+
+.demo-type-h1 { font-size: 48px; font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; }
+.demo-type-h2 { font-size: 36px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.demo-type-h3 { font-size: 24px; font-weight: 600; line-height: 1.3; }
+.demo-type-p  { font-size: 16px; font-weight: 400; line-height: 1.6; color: var(--text-secondary); }
+
+/* ============================
+   14. FONT PAIRING DEMO
+   ============================ */
+.demo-pairing-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 40px;
+}
+
+.demo-pairing-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 500px;
+}
+
+.demo-pairing-serif {
+  font-family: 'Georgia', serif; /* Simulating Playfair Display */
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.demo-pairing-sans {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* ============================
+   15. COLOR THEORY 60-30-10
+   ============================ */
+.demo-color-wrapper {
+  flex: 1;
+  display: flex;
+  padding: 40px;
+  gap: 20px;
+  background: var(--bg-primary); /* The 60% */
+}
+
+.demo-color-60 {
+  flex: 6;
+  background: var(--bg-primary);
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.demo-color-30 {
+  flex: 3;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.demo-color-10 {
+  flex: 1;
+  background: var(--accent-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+/* ============================
+   16. GRADIENT TEXT DEMO
+   ============================ */
+.demo-gradient-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  text-align: center;
+  padding: 40px;
+}
+
+.demo-gradient-text {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #45B7D1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================
+   17. DISPLAY TYPOGRAPHY
+   ============================ */
+.demo-display-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: 40px;
+  overflow: hidden;
+}
+
+.demo-display-hero {
+  font-size: clamp(60px, 8vw, 120px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.demo-display-hero span.italic {
+  font-style: italic;
+  font-family: 'Times New Roman', serif;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-transform: lowercase;
+}
+
+/* ============================
+   18. THEME TOGGLE DEMO
+   ============================ */
+.demo-theme-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.demo-theme-wrapper.light {
+  background: #F3F4F6;
+}
+
+.demo-theme-wrapper.dark {
+  background: #111827;
+}
+
+.demo-theme-card {
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.demo-theme-wrapper.light .demo-theme-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  color: #1F2937;
+}
+
+.demo-theme-wrapper.dark .demo-theme-card {
+  background: #1F2937;
+  border: 1px solid #374151;
+  color: #F9FAFB;
+}
+
+.demo-theme-btn {
+  margin-top: 24px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.demo-theme-wrapper.light .demo-theme-btn {
+  background: #111827;
+  color: white;
+}
+
+.demo-theme-wrapper.dark .demo-theme-btn {
+  background: #F3F4F6;
+  color: #111827;
+}
+
+/* ============================
+   19. F-PATTERN LAYOUT DEMO
+   ============================ */
+.demo-fpattern-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  padding: 24px;
+  overflow: auto;
+}
+
+.demo-fpattern-article {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.demo-fpattern-content h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.demo-fpattern-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.demo-fpattern-content p strong {
+  color: var(--text-primary);
+}
+
+.demo-fpattern-toc {
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.demo-fpattern-toc h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+}
+
+.demo-fpattern-toc ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-fpattern-toc ul li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.demo-fpattern-toc ul li a:hover {
+  color: var(--accent-primary);
+}
+
+/* ============================
+   20. HERO + FEATURE GRID DEMO
+   ============================ */
+.demo-feature-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  overflow: auto;
+}
+
+.demo-feature-hero {
+  padding: 40px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.demo-feature-hero h2 {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff, rgba(255,255,255,0.6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.demo-feature-hero p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.demo-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+}
+
+.demo-feature-card {
+  background: var(--bg-primary);
+  padding: 24px;
+  transition: background 0.2s ease;
+}
+
+.demo-feature-card:hover {
+  background: var(--bg-secondary);
+}
+
+.demo-feature-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.demo-feature-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.demo-feature-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================
+   21. ASYMMETRIC SPLIT DEMO
+   ============================ */
+.demo-split-wrapper {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  overflow: hidden;
+}
+
+.demo-split-visual {
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  font-size: 80px;
+}
+
+.demo-split-content {
+  background: var(--bg-secondary);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.demo-split-overline {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+}
+
+.demo-split-content h2 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.demo-split-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ============================
+   22. MASONRY LAYOUT DEMO
+   ============================ */
+.demo-masonry-wrapper {
+  flex: 1;
+  background: var(--bg-primary);
+  padding: 24px;
+  overflow: auto;
+}
+
+.demo-masonry-grid {
+  columns: 3;
+  column-gap: 12px;
+}
+
+.demo-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.demo-masonry-item:hover {
+  transform: translateY(-4px);
+}
+
+.demo-masonry-image {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+}
+
+.demo-masonry-label {
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ============================
+   23. FULL PAGE SCROLL DEMO
+   ============================ */
+.demo-fullpage-wrapper {
+  flex: 1;
+  position: relative;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.demo-fullpage-section {
+  height: 100%;
+  min-height: 400px;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-fullpage-section:nth-child(1) { background: #0D0D2B; }
+.demo-fullpage-section:nth-child(2) { background: #0D1B2B; }
+.demo-fullpage-section:nth-child(3) { background: #0D2B1A; }
+.demo-fullpage-section:nth-child(4) { background: #2B1A0D; }
+
+.demo-fullpage-section h2 {
+  font-size: 40px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.03em;
+}
+
+.demo-fullpage-section p {
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+}
+
+/* ============================
+   24. SIDEBAR + CONTENT DEMO
+   ============================ */
+.demo-sidebar-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.demo-sidebar-nav {
+  width: 200px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.demo-sidebar-logo {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  padding: 0 8px;
+  color: var(--text-primary);
+}
+
+.demo-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.demo-sidebar-link:hover,
+.demo-sidebar-link.active {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.demo-sidebar-link.active {
+  border-left: 2px solid var(--accent-primary);
+}
+
+.demo-sidebar-main {
+  flex: 1;
+  padding: 24px;
+  background: var(--bg-primary);
+  overflow: auto;
+}
+
+.demo-sidebar-header {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.demo-sidebar-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.demo-stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.demo-stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.demo-stat-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+}

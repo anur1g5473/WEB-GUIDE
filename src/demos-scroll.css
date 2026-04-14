@@ -1,0 +1,475 @@
+/* ============================
+   SCROLL & ANIMATION — COMPLETE REDO
+   ============================ */
+
+/* 25. PARALLAX ─ layered depth */
+.demo-parallax-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #050510;
+  cursor: crosshair;
+}
+.demo-parallax-bg {
+  position: absolute;
+  inset: -30%;
+  transition: transform 0.08s linear;
+  will-change: transform;
+}
+.demo-parallax-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+.demo-parallax-mid {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.15s linear;
+  will-change: transform;
+}
+.demo-parallax-particle {
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+}
+.demo-parallax-fg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s linear;
+}
+.demo-parallax-fg h2 {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: white;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 0 80px rgba(99,102,241,0.8);
+}
+.demo-parallax-fg p {
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+  margin-top: 12px;
+}
+.demo-parallax-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.25);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* 26. SCROLL-TRIGGERED ─ dramatic cinematic */
+.demo-st-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  background: #050505;
+  padding: 20px;
+  scrollbar-width: none;
+}
+.demo-st-wrapper::-webkit-scrollbar { display: none; }
+.demo-st-big-item {
+  height: 120px;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.demo-st-big-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.demo-st-big-item .num {
+  font-size: 80px;
+  font-weight: 900;
+  position: absolute;
+  right: 16px;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.demo-st-big-item .content-text { position: relative; z-index: 1; }
+.demo-st-big-item .tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+.demo-st-big-item h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+/* 27. HORIZONTAL SCROLL ─ cinematic cards */
+.demo-hscroll-wrapper {
+  flex: 1;
+  background: #08080f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.demo-hscroll-label {
+  padding: 24px 28px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.demo-hscroll-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 28px 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.demo-hscroll-track::-webkit-scrollbar { display: none; }
+.demo-hscroll-track:active { cursor: grabbing; }
+.demo-hscroll-card {
+  min-width: 260px;
+  height: 260px;
+  border-radius: 20px;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.demo-hscroll-card:hover { transform: scale(1.03); }
+.demo-hscroll-card-bg {
+  position: absolute;
+  inset: 0;
+}
+.demo-hscroll-card-num {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+.demo-hscroll-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+.demo-hscroll-card-content h4 {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.demo-hscroll-card-content p { font-size: 12px; color: rgba(255,255,255,0.5); }
+.demo-hscroll-hint {
+  padding: 0 28px 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* 28. STICKY SECTIONS ─ product reveal */
+.demo-sticky-wrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+.demo-sticky-left {
+  width: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-right: 1px solid #1e1e1e;
+  flex-shrink: 0;
+  position: relative;
+}
+.demo-sticky-screen {
+  width: 170px;
+  height: 280px;
+  background: #000;
+  border-radius: 28px;
+  border: 2px solid #333;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px #222;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.demo-sticky-screen-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 48px;
+  transition: background 0.5s ease;
+}
+.demo-sticky-screen-inner span {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+}
+.demo-sticky-right {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+.demo-sticky-right::-webkit-scrollbar { width: 3px; }
+.demo-sticky-right::-webkit-scrollbar-thumb { background: #222; }
+.demo-sticky-feat {
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.demo-sticky-feat.active {
+  background: rgba(99,102,241,0.08);
+  border-color: rgba(99,102,241,0.3);
+}
+.demo-sticky-feat:hover:not(.active) {
+  border-color: #222;
+  background: #111;
+}
+.demo-sticky-feat-icon {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.demo-sticky-feat h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+.demo-sticky-feat p { font-size: 12px; color: #666; line-height: 1.5; }
+
+/* 29. TEXT REVEAL ─ dramatic & interactive */
+.demo-textreveal-wrapper {
+  flex: 1;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+.demo-textreveal-bg-text {
+  position: absolute;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.02);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.demo-reveal-headline {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.demo-reveal-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) rotate(3deg);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+              transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  margin-right: 0.22em;
+}
+.demo-reveal-word.revealed {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+.demo-reveal-word.accent {
+  background: linear-gradient(135deg, #6366F1, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.demo-reveal-hint {
+  position: absolute;
+  bottom: 20px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: breathe 2.5s ease infinite;
+}
+@keyframes breathe { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+
+/* 30. SCROLL PROGRESS ─ immersive reader */
+.demo-progress-wrapper {
+  flex: 1;
+  position: relative;
+  overflow-y: auto;
+  background: #060609;
+  scrollbar-width: none;
+}
+.demo-progress-wrapper::-webkit-scrollbar { display: none; }
+.demo-progress-rail {
+  position: sticky;
+  top: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.05);
+  z-index: 100;
+}
+.demo-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366F1 0%, #EC4899 60%, #F59E0B 100%);
+  transform-origin: left;
+  transition: width 0.05s linear;
+}
+.demo-progress-pct {
+  position: fixed;
+  display: none;
+}
+.demo-article {
+  padding: 40px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.demo-article-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6366F1;
+  margin-bottom: 16px;
+}
+.demo-article h2 {
+  font-size: 32px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.demo-article-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.demo-article p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+}
+.demo-article p code {
+  color: #818CF8;
+  background: rgba(99,102,241,0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.demo-progress-pct-badge {
+  position: sticky;
+  bottom: 20px;
+  float: right;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.3);
+  color: #818CF8;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+/* 31. SMOOTH SCROLL / LENIS ─ physics visualizer */
+.demo-lenis-wrapper {
+  flex: 1;
+  background: #070710;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.demo-lenis-top {
+  padding: 28px 28px 0;
+}
+.demo-lenis-top h3 {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: white;
+  margin-bottom: 6px;
+}
+.demo-lenis-top p { font-size: 13px; color: rgba(255,255,255,0.35); }
+.demo-lenis-visualizer {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 24px 28px;
+}
+.demo-lenis-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.demo-lenis-bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background: var(--bar-color, #6366F1);
+  transition: height var(--bar-duration, 0.3s) cubic-bezier(0.16,1,0.3,1);
+}
+.demo-lenis-bar-label {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.demo-lenis-code {
+  padding: 16px 28px 24px;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #818CF8;
+  line-height: 1.8;
+}
+.demo-lenis-code span { color: rgba(255,255,255,0.3); }
